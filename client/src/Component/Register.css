@@ -1,0 +1,17 @@
+.border{
+    border-radius:.5em;
+    border-color:red;
+    border-width: 200px;
+    border-top: 5px;
+    margin-bottom: auto;
+    background-color: aquamarine;
+
+    
+}
+.card{
+    height: 500px;
+    width: 400px;
+     margin-bottom: 10px;
+     margin-left: 300px;
+     margin-top: 50px;
+   }
