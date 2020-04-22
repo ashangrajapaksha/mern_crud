@@ -8,6 +8,7 @@ import Register from './Component/Register'
 import Profile from './Component/Profile'
 import Adminpanel from './Component/Adminpanel';
 import Addproduct from './Component/Addproduct'
+import Productview from './Component/Productview'
 
 class App extends Component {
   render(){
@@ -24,6 +25,8 @@ class App extends Component {
           <Route exact path="/profile" component={Profile}/>
           <Route exact path="/admin" component={Adminpanel}/>
           <Route exact path="/addproduct" component={Addproduct}/>
+          <Route exact path="/product" component={Productview}/>
+
 
         
         </div>

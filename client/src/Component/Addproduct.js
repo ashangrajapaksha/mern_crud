@@ -37,6 +37,7 @@ class Landing extends Component {
     axios.post('product/add',pro)
     .then(res=>{
       console.log(res.data)
+      alert('Added successfuly..!')
     }).catch(error=>{
       console.log(error)
     })

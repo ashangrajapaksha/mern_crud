@@ -34,21 +34,25 @@ class Navbars extends Component {
 
         const userLink = (
             <ul className = "right navbar-nav">
-                <li className="nav-item" >
                 
-                    <Link to ="/profile" className="nav-link">User</Link>
-                </li>
-
                 <li className="nav-item" >
                 <Link to ="/admin" className="nav-link">About Us</Link>
-            </li>
-
+                </li>
             <li className="nav-item" >
             <Link to ="/addproduct" className="nav-link">Add Product</Link>
-        </li>
+             </li>
+
+             <li className="nav-item" >
+             <Link to ="/product" className="nav-link">Product</Link>
+              </li>
+
+            <li className="nav-item">
+             <Link to ="/profile" className="nav-link">User</Link>
+            </li>
+
 
                 <li className=" right nav-item">
-                    <a style={{marginLeft:"900px"}} href="/" onClick={this.logOut.bind(this)} className="nav-link">Logout</a>
+                    <a style={{marginLeft:"1450px"}} href="/" onClick={this.logOut.bind(this)} className="nav-link">Logout</a>
                 </li>
             </ul>
 
