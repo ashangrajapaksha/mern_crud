@@ -1,5 +1,6 @@
 import React , {Component} from 'react'
 import {Link , withRouter} from 'react-router-dom'
+import './Navbar.css'
 
 
 
@@ -20,7 +21,7 @@ class Navbars extends Component {
     render(){
 
         const loginRegLink = (
-            <ul className = "right navbar-nav">
+            <ul className = "navbar-nav ml-auto">
                 <li className=" nav-item">
                     <Link  to ="/login" className="nav-link">Login</Link>
                 </li>
@@ -33,7 +34,7 @@ class Navbars extends Component {
         )
 
         const userLink = (
-            <ul className = "right navbar-nav">
+            <ul className = " navbar-nav ml-auto">
                 
                 <li className="nav-item" >
                 <Link to ="/admin" className="nav-link">About Us</Link>
@@ -50,16 +51,17 @@ class Navbars extends Component {
              <Link to ="/profile" className="nav-link">User</Link>
             </li>
 
-
-                <li className=" right nav-item">
-                    <a style={{marginLeft:"1450px"}} href="/" onClick={this.logOut.bind(this)} className="nav-link">Logout</a>
+                <div className="topnav-right">
+                <li className="nav-item ">
+                    <a href="/" onClick={this.logOut.bind(this)} className="nav-link">Logout</a>
                 </li>
+                </div>
             </ul>
 
         )
 
         return( 
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+            <nav className="navbar navbar-expand-md navbar-dark bg-dark fixed-top ">
             <button className="navbar-toggler" type="button" data-toggle="collapse" 
             data-target="#navbar1"
             aria-controls="navbar1"
@@ -67,13 +69,15 @@ class Navbars extends Component {
             aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span></button>
 
-            <div className="collapse navbar-collapse justify-contend-md-center" id="navbar1" >
-                <ul className="navbar-nav">
+            <div  >
+                <ul className=" navbar-nav ml-auto float-md-left">
                     <li className="nav-item">
                         <Link to ="/" className="nav-link">Home</Link>
                     </li>
+
                 </ul>
                 {localStorage.usertoken ? userLink : loginRegLink}
+
 
             </div></nav> 
         )   

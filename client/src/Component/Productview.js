@@ -31,11 +31,11 @@ class Productview extends Component {
     return (
       <div>
 
-      <table className="table table-striped">
+      <table className="table table-striped" style={{marginTop:"60px"}}>
       <thead>
       <tr>
         <th>Product Name</th>
-        <th>Product Price(100g)</th>
+        <th>Product Price(1kg)</th>
         <th>Product Date</th>
         <th>Action</th>
       </tr>

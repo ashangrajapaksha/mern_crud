@@ -5,6 +5,7 @@ const product = require("../model/product")
 
 
 
+
 router.post('/add' , (req,res) =>{
 
     //console.log("eeeeeeeeeeeeeeee")
@@ -60,6 +61,40 @@ router.delete('/delete/:_id',(req,res)=>{
 });
 
 
+router.get('/edit/:_id' , (req,res)=>{
+    const id = req.params._id
+
+    product.findById(id , (err,product)=>{
+        res.json(product)
+    })
+})
+
+router.post('/update/:_id',(req,res)=>{
+    const id = req.params._id
+
+    product.findById(id, (err,product)=>{
+        if(!product){
+            res.status(404).json('Data is not found')
+        }else{
+
+            
+                product.productName=req.body.productName,
+                product.productPrice=req.body.productPrice,
+                product.productDate=req.body.productDate,
+            
+
+            product.save()
+            .then(result=>{ res.json({state:true , msg:"Data updated"})
+        //console.log(result)
+        })
+        .catch(error=>{
+        console.log(error)
+        res.json({state:false , msg:"Data updated unsuccessfull"})
+    })
+
+        }
+    })
+})
 
 
 module.exports = router

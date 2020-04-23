@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import {Link} from 'react-router-dom'
+
+
 
 class Table extends Component {
 
@@ -27,8 +30,8 @@ class Table extends Component {
         <td>{this.props.obj.productPrice}</td>
         <td>{this.props.obj.productDate}</td>
         <td>
-            <button className='btn btn-primary'>Edit</button>
-            <button onClick={this.delete} className="btn btn-danger">Delete</button>        
+        <Link to={"/edit/"+this.props.obj._id} className="btn btn-primary">Edit</Link>            
+        <button onClick={this.delete} className="btn btn-danger">Delete</button>        
         </td>
 
 

@@ -1,5 +1,5 @@
 import React , {Component} from 'react';
-import {BrowserRouter as Router , Route} from 'react-router-dom'
+import {BrowserRouter as Router ,Switch, Route} from 'react-router-dom'
 
 import Navbars from './Component/Navbars'
 import Landing from './Component/Landing'
@@ -9,6 +9,7 @@ import Profile from './Component/Profile'
 import Adminpanel from './Component/Adminpanel';
 import Addproduct from './Component/Addproduct'
 import Productview from './Component/Productview'
+import Editproduct from './Component/Editproduct'
 
 class App extends Component {
   render(){
@@ -26,9 +27,14 @@ class App extends Component {
           <Route exact path="/admin" component={Adminpanel}/>
           <Route exact path="/addproduct" component={Addproduct}/>
           <Route exact path="/product" component={Productview}/>
+          
 
 
+          <Switch>
+          
+          <Route path='/edit/:id' component={ Editproduct } />
         
+      </Switch>
         </div>
         </div> 
       </Router> 
