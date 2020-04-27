@@ -2,28 +2,56 @@ const express  = require("express")
 const router = express.Router()
 const cors = require("cors")
 const product = require("../model/product")
+const multer = require('multer')
+const path = require('path')
+const fs = require('fs')
+
+
+var storage = multer.diskStorage({
+    destination: (req,file,cb)=>{
+        cb(null, 'local_storage/product_attachment/')
+    },
+    filename:(req,file,cb)=>{
+        cb(null , "NOT_FILE - "+file.originalname)
+    }
+});
+
+const upload = multer({storage:storage}).single('productFile');
 
 
 
 
 router.post('/add' , (req,res) =>{
 
-    //console.log("eeeeeeeeeeeeeeee")
+    upload(req,res,(err)=>{
 
-    const  newProduct = new product({
-        productName:req.body.productName,
-        productPrice:req.body.productPrice,
-        productDate:req.body.productDate,
+        const file = req.body.file;
+
+        if(file){
+            var filePath = "NOT_FILE - " + req.file.originalname;
+        }
+
+        const  newProduct = new product({
+            productName:req.body.productName,
+            productPrice:req.body.productPrice,
+            productDate:req.body.productDate,
+            filepath:filePath
+        })
+        newProduct.save()
+        .then(result=>{
+            console.log(result)
+            res.json({state:true , msg:"Data add success"})
+            //res.send(result)
+            //console.log(result)
+        })
+        .catch(error=>{
+            console.log(error)
+            res.json({state:false , msg:"Data added unsuccessfull"})
+        })
+
     })
-    newProduct.save()
-    .then(result=>{
-        res.json({state:true , msg:"Data add success"})
-        //console.log(result)
-    })
-    .catch(error=>{
-        console.log(error)
-        res.json({state:false , msg:"Data added unsuccessfull"})
-    })
+
+  
 
 });
 

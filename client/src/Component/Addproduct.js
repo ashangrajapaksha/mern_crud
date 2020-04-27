@@ -13,7 +13,8 @@ class Landing extends Component {
     this.state = {
        productName:'',
        productPrice:'',
-       productDate:''
+       productDate:'',
+       productFile:''
     }
     this.onChange = this.onChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
@@ -31,7 +32,8 @@ class Landing extends Component {
     const pro = {
       productName:this.state.productName,
        productPrice:this.state.productPrice,
-       productDate:this.state.productDate
+       productDate:this.state.productDate,
+       productFile:this.state.productFile
     }
 
     axios.post('product/add',pro)
@@ -45,7 +47,9 @@ class Landing extends Component {
     this.setState({
       productName:'',
       productPrice:'',
-      productDate:''
+      productDate:'',
+      productFile:''
+
       
     })
 
@@ -80,6 +84,13 @@ class Landing extends Component {
       <label className="lbl" htmlFor="productDate">Date</label>
       <input type="date" className="form-control  box_border" name="productDate" value={this.state.productDate} onChange={this.onChange}/>
       </div>
+      <div className="form-row mb-4">
+      <label className="lbl" htmlFor="productFile">Add File</label>
+      <input type="file" className="form-control  box_border" name="productFile" value={this.state.productFile} onChange={this.onChange}/>
+      </div> 
+      
+
+
       
       <button type="submit" class="btn btn-primary">Add Product</button>
       </form>

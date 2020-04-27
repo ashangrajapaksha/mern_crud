@@ -13,7 +13,11 @@ const productSchema = new Schema({
     },
     productDate:{
         type:String
+    },
+    filepath:{
+        type:String
     }
+
 })
 
 const product = module.exports  = mongoose.model("product", productSchema)
