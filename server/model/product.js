@@ -12,7 +12,7 @@ const productSchema = new Schema({
         type:String
     },
     productDate:{
-        type:String
+        type:Date
     },
     filepath:{
         type:String
