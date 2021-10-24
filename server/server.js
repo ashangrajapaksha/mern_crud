@@ -15,10 +15,7 @@ app.use(
 
 const mongoUrl = 'mongodb://localhost:27017/practice'
 
-mongoose
-    .connect(mongoUrl , {useNewUrlParser:true})
-    .then(()=> console.log("MongoBD connected"))
-    .catch(err => console.log(err))
+
 
 var Users = require('./routes/Users')
 var product= require('./routes/product')
@@ -28,7 +25,10 @@ app.use('/users' , Users)
 
 
 app.listen(port,()=>{
+    mongoose
+    .connect(mongoUrl , {useNewUrlParser:true})
+    .then(()=> console.log("MongoBD connected"))
+    .catch(err => console.log(err))
     console.log("Server is running on port" + port)
-
 })
 
